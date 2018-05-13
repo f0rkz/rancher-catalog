@@ -1,0 +1,8 @@
+name: Conan Exiles Dedicated Server
+description: |
+  Conan exiles dedicated server. Uses Wine.
+version: v.0.0.1
+category: gameserver
+maintainer: f0rkz@f0rkznet.net
+license: MIT
+projectURL: https://www.github.com/f0rkz/rancher-catalog

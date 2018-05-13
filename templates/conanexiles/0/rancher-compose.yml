@@ -1,0 +1,44 @@
+.catalog:
+  name: "Conan Exiles Dedicated Server"
+  version: "v0.0.1"
+  description: "Conan exiles dedicated server. Uses Wine."
+  uuid: connanexiles-0
+  minimum_rancher_version: v1.6.0
+  questions:
+    - variable: "CONANEXILES_SERVER_TYPE"
+      description: "Type of server (PvP or PvE)"
+      label: "Server Type"
+      required: true
+      type: "string"
+      default: "pvp"
+      options:
+        - pvp
+        - pve
+    - variable: "CONANEXILES_ServerSettings_ServerSettings_AdminPassword"
+      description: "Server administrator password"
+      label: "Administrator Password"
+      required: true
+      type: "string"
+      default: "ChangeMe"
+    - variable: "CONANEXILES_Engine_OnlineSubSystemSteam_ServerName"
+      description: "The hostname for your server"
+      label: "Server Name"
+      required: true
+      type: "string"
+    - variable: "CONANEXILES_Engine_OnlineSubSystemSteam_ServerPassword"
+      description: "Server join password"
+      label: "Server Password"
+      required: false
+      type: "string"
+services:
+  conan:
+    scale: 1
+    retain_ip: true
+    health_check:
+      port: 7777
+      interval: 2000
+      initializing_timeout: 30000
+      unhealthy_threshold: 3
+      strategy: recreate
+      response_timeout: 2000
+      healthy_threshold: 2
