@@ -31,7 +31,7 @@
       required: false
       type: "string"
 services:
-  conan:
+  conanexiles:
     scale: 1
     retain_ip: true
     health_check:
